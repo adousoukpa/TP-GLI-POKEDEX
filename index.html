@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+</head>
+<body ng-app="pokedex">
+
+	<div class="container">
+
+        <!-- Pokedex directive -->
+        <pokedex></pokedex>
+
+        <!-- Pokémon information -->
+		<div ng-controller="PokemonController">
+            <div ng-if="infoPokemon">
+                <h1>Pokémon details ! 
+                        <img ng-src="https://assets.thesilphroad.com/img/pokemon/animated/{{selectPokemon.name}}.gif" alt="">
+                </h1>
+                <h2>Name : {{infoPokemon.name}}</h2>
+                <h2>Index</h2>
+                <ul>
+                    <li>Pokedex : {{infoPokemon.pkdx_id}}</li>
+                    <li>Nationally : {{infoPokemon.national_id}}</li>
+                </ul>
+                <h2>Moves</h2>
+                <ul>
+                    <li ng-repeat="move in infoPokemon.moves">{{move.name}} ({{move.learn_type}})</li>
+                </ul>
+            </div>
+        </div>
+	</div>
+
+    <!-- Dependencies -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+
+    <!-- Pokedex app -->
+    <script src="js/pokedex.js"></script>
+
+
+</body>
+</html>

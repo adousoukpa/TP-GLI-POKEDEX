@@ -1,0 +1,15 @@
+<div ng-controller="PokedexController">
+        <!-- Filtrer par name ou id -->
+        <label for="enableFilter">Enable filter <input type="checkbox" id="enableFilter" ng-model="enableFilter"></label>
+        <input type="text" ng-model="pokemonFilter" ng-show="enableFilter"><br>
+        
+        <!-- Pokemon list -->
+        <input type="text" ng-model="selectPokemon.id" size="6"><br>
+        <input type="text" ng-model="selectPokemon.name"> <br>
+
+        <select ng-options="pokemon.name for pokemon in pokemons | filter:pokemonFilter"
+        ng-model="selectPokemon"></select>
+
+
+        <button ng-click="$log.log(selectPokemon)">Go !</button>
+    </div>
